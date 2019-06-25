@@ -13,15 +13,17 @@ module.exports = {
   css: {
     loaderOptions: {
       stylus: {
-        "resolve url": true,
-        import: []
+        'resolve url': true,
+        'import': [
+          './src/theme'
+        ]
       }
     }
   },
   pluginOptions: {
-    "cube-ui": {
+    'cube-ui': {
       postCompile: true,
-      theme: false
+      theme: true
     }
   }
 };
