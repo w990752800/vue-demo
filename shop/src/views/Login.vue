@@ -55,8 +55,16 @@ export default {
     validateHandler() {
       console.log("校验");
     },
-    submitHandler() {
+    async submitHandler() {
       event.stopPropagation();
+      let res = await this.$http.get("/api/login");
+      if (res.data.code === 0) {
+        //登陆成功
+        this.$store.commit("setToken", res.data.token);
+        localStorage.setItem("token", res.data.token);
+      } else {
+        //登陆失败
+      }
     }
   }
 };
